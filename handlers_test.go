@@ -20,7 +20,7 @@ func TestFetchUserPublicGists(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 
 	assert.Equal(t, rr.Code, http.StatusOK)
-	// sily check of the octate id just to make sure we are getting a github response.
+	// sily check of the octocat id just to make sure we are getting a github response.
 	expected := "583231"
 	assert.Contains(t, rr.Body.String(), expected)
 }
