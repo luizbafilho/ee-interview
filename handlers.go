@@ -39,10 +39,14 @@ func fetchUserPublicGists(cache cacher) http.HandlerFunc {
 		}
 
 		// Given that isn't a requirement to make any changes to the response, we can just copy the response body
-		_, err = io.Copy(w, resp.Body)
+		responseBody, err := io.ReadAll(resp.Body)
 		if err != nil {
 			http.Error(w, `{"error": "`+err.Error()+`"}`, http.StatusInternalServerError)
 			return
 		}
+
+		cache.Set(cacheKey, string(responseBody))
+
+		w.Write(responseBody)
 	}
 }
