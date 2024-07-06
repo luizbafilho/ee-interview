@@ -11,7 +11,9 @@ import (
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /users/{user}", fetchUserPublicGists)
+	cache := NewCache()
+
+	mux.HandleFunc("GET /users/{user}", fetchUserPublicGists(cache))
 
 	// Handle Ctrl+C signals
 	stop := make(chan os.Signal, 1)

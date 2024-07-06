@@ -15,7 +15,7 @@ func TestFetchUserPublicGists(t *testing.T) {
 	req.SetPathValue("user", "octocat")
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(fetchUserPublicGists)
+	handler := http.HandlerFunc(fetchUserPublicGists(NewCache()))
 
 	handler.ServeHTTP(rr, req)
 
