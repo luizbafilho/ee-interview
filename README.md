@@ -13,7 +13,7 @@ This project is a solution to the Operability Take-Home Exercise. It involves bu
 If `docker-compose` is installed, just run:
 
 ```
-docker-compose up
+docker-compose up app
 ```
 
 If not:
@@ -21,6 +21,20 @@ If not:
 docker build -t equal-experts-test .
 docker run -it --rm -p 8080:8080 equal-experts-test
 ```
+
+### Tests
+If `docker-compose` is installed, just run:
+
+```
+docker-compose up test
+```
+
+If not:
+```
+docker build -t equal-experts-test-test -f test.Dockerfile .
+docker run -it --rm equal-experts-test-test
+```
+
 
 ### TODOs
 

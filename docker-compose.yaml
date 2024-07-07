@@ -5,3 +5,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+  test:
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    volumes:
+      - .:/app
