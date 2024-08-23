@@ -15,5 +15,6 @@ jobs:
         name: Build & push Docker image
         with:
           registry: ghcr.io
+          image: luizbafilho/ee-interview
           username: luizbafilho
           password: ${{ secrets.GHCR_TOKEN }}
